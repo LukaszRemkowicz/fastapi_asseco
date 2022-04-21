@@ -31,7 +31,7 @@ jobs:
 
       - name: docker-compose build
         run: |
-          docker-compose build .
+          docker-compose build
 
       # - name: Run docker-compose
       #   run: |
