@@ -18,3 +18,6 @@ RUN adduser -u 5678 --disabled-password --gecos "" user && chown -R user /fastap
 USER user
 
 CMD ["uvicorn", "app:app", "--reload", "--host", "0.0.0.0", "--port", "8080"]
+
+FROM development as production
+RUN mkdir /fastapi_app/_logs
