@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ production ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: fastapi
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # -
+      #   uses: docker/login-action@v1
+      #   name: docker login
+      #   with:
+      #     username: ${{secrets.DOCKER_USER}}
+      #     password: ${{secrets.DOCKER_PASSWORD}}
+
+      - name: docker login
+
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
+      - name: docker-compose build
+        run: |
+          docker-compose -f docker-compose.prod.yml build
+
+      # - name: Run docker-compose
+      #   run: |
+      #     docker-compose -f docker-compose.prod.yml run fastappi
+
+      - name: docker push
+        run: |
+         docker push janou/fastappi
