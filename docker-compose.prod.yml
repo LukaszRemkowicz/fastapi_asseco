@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   fastappi:
-    container_name: janou/fastapi
+    container_name: janou/fastappi
     build:
       context: .
       target: production
