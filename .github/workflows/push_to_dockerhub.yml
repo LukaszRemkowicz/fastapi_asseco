@@ -21,8 +21,8 @@ jobs:
           docker login -u $DOCKER_USER -p &DOCKER_PASSWORD
 
       - name: install docker-compose
-      run: |
-        pip install docker-compose
+        run: |
+          pip install docker-compose
 
       - name: Run docker-compose
         run: |
