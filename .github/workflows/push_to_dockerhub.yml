@@ -39,4 +39,4 @@ jobs:
 
       - name: docker push
         run: |
-         docker-compose push fastappi
+         docker-compose push janou/fastappi
