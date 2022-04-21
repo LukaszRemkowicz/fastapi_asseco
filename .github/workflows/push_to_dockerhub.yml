@@ -39,4 +39,4 @@ jobs:
 
       - name: docker push
         run: |
-         docker push janou/asseco-fastapi:1.0.0
+         docker-compose push 
