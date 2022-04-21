@@ -20,4 +20,4 @@ USER user
 CMD ["uvicorn", "app:app", "--reload", "--host", "0.0.0.0", "--port", "8080"]
 
 FROM development as production
-RUN mkdir /fastapi_app/_logs
+RUN mkdir -p /fastapi_app/_logs
