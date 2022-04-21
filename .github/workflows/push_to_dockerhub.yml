@@ -35,7 +35,7 @@ jobs:
 
       - name: Run docker-compose
         run: |
-          docker-compose -f docker-compose.prod.yml run  janou/asseco-fastapi sh -c "python -m unittest tests.test_index"
+          docker-compose -f docker-compose.prod.yml run fastapi sh -c "python -m unittest tests.test_index"
 
       - name: docker push
         run: |
