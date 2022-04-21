@@ -18,8 +18,8 @@ jobs:
         name: docker login
         with:
           registry: ghcr.io
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{secrets.DOCKER_USER}}
+          password: ${{secrets.DOCKER_PASSWORD}}
 
       # - name: install docker-compose
 
