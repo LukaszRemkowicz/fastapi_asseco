@@ -31,7 +31,7 @@ jobs:
 
       - name: docker-compose build
         run: |
-          docker-compose build
+          docker-compose -f docker-compose.prod.yml build
 
       # - name: Run docker-compose
       #   run: |
@@ -39,4 +39,4 @@ jobs:
 
       - name: docker push
         run: |
-         docker-compose push janou/fastappi
+         docker push janou/fastappi
