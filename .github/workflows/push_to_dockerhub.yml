@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ production ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: docker login
+        env: |
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u $DOCKER_USER -p &DOCKER_PASSWORD
+
+      - name: install docker-compose
+      run: |
+        pip install docker-compose
+
+      - name: Run docker-compose
+        run: |
+          docker-compose -f docker-compose.prod.yml run fastappi sh -c "python -m unittest tests.test_index"
+
+      - name: docker push
+        run: |
+         docker push janou/asseco-fastapi: 1.0.0
