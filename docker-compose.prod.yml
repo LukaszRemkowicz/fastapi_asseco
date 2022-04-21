@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   fastappi:
-    image: janou/asseco-fastapi:1.0.0 
+    image: janou/asseco-fastapi
     build:
       context: .
       target: production
