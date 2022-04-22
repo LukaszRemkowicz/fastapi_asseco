@@ -48,6 +48,6 @@ def get_logging_structure(LOGFILE_ROOT):
     }
 
 
-LOGGING = get_logging_structure('_logs')
+LOGGING = get_logging_structure('server/_logs')
 logging.config.dictConfig(LOGGING)
 logger = logging.getLogger(__name__)

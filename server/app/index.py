@@ -5,7 +5,7 @@ import os
 
 from fastapi.responses import JSONResponse
 from fastapi import FastAPI, status, Request
-from app.logging_setup import logger
+from server.app.logging_setup import logger
 
 from dotenv import load_dotenv
 
