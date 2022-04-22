@@ -1,7 +1,6 @@
 import json
 from unittest import TestCase
 
-from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from app.index import app
@@ -38,4 +37,3 @@ class TestIndex(TestCase):
         response = self.client.post(url)
 
         assert response.status_code == 405
-
