@@ -25,7 +25,7 @@ def get_logging_structure(LOGFILE_ROOT):
                 'formatter': 'verbose'
             },
             'console': {
-                'level': 'DEBUG',
+                'level': 'ERROR',
                 'class': 'logging.StreamHandler',
                 'formatter': 'simple'
             }

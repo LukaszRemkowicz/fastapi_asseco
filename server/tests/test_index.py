@@ -3,7 +3,7 @@ from unittest import TestCase
 
 from fastapi.testclient import TestClient
 
-from app.index import app
+from server.app.index import app
 
 
 class TestIndex(TestCase):
