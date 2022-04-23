@@ -6,10 +6,14 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 COPY ./requirements.txt /requirements.txt
+RUN ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/timezone && \
+    ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
 RUN pip install --no-cache-dir --upgrade -r /requirements.txt
 
 RUN mkdir /fastapi_app
 WORKDIR /fastapi_app
+
+RUN mkdir /server
 
 COPY . /fastapi_app/server
 

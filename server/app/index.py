@@ -1,13 +1,13 @@
-import datetime
-from pprint import pprint
+from datetime import datetime
 import socket
 import os
 
 from fastapi.responses import JSONResponse
-from fastapi import FastAPI, status, Request
-from server.app.logging_setup import logger
-
+from fastapi import FastAPI, status
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
+
+from server.app.logging_setup import logger
 
 dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
 load_dotenv(dotenv_path)
@@ -15,10 +15,26 @@ load_dotenv(dotenv_path)
 app=FastAPI()
 
 
-@app.get('/', status_code=status.HTTP_201_CREATED)
-def index():
+origins = [
+    "http://localhost:3000",
+    "http://localhost",
+    "http://127.0.0.1:3000",
+    "127.0.0.1:3000"
+]
 
-    date_now = datetime.datetime.now()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get('/', status_code=status.HTTP_200_OK)
+def index() -> JSONResponse:
+
+    date_now = datetime.now()
     date_now = date_now.strftime("%Y.%m.%d, %H:%M")
 
     socket_ip = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
