@@ -36,4 +36,4 @@ jobs:
       - name: docker push
         run: |
          docker push janou/fastappi
-         docker push reactapp
+         docker push janou/reactapp
