@@ -15,7 +15,7 @@ services:
       - SERVER_IP=${SERVER_IP}
 
   client:
-    image: reactapp
+    image: janou/reactapp
     build: ./client
     container_name: reactapp
     ports:
