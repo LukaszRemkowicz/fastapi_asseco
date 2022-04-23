@@ -3,7 +3,7 @@ import logging.config
 import os
 
 
-def get_logging_structure(LOGFILE_ROOT):
+def get_logging_structure(LOGFILE_ROOT: str) -> dict:
 
     return {
         'version': 1,

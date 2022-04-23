@@ -19,7 +19,7 @@ class TestIndex(TestCase):
 
         assert response.status_code == 200
 
-    def test_response_obj(self):
+    def test_response_obj(self) -> None:
         """ check if response is dict and includes date and ip """
 
         url = '/'
@@ -30,7 +30,7 @@ class TestIndex(TestCase):
         assert response.get('date')
         assert any([key for key in response.keys() if 'ip' in key])
 
-    def test_if_no_post_method(self):
+    def test_if_post_is_not_allowed(self) -> None:
         """ Test if endpoint not allows post method """
 
         url = '/'
