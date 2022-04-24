@@ -9,13 +9,13 @@
 # Instructions:
 
 * Copy repo on your local disc
-* To have your server ip showed on the website add .env file to main folder of aplication.
+* To have your server ip showed on the website, add .env file to main folder of aplication.
 * Add variable to file: SERVER_IP=your host ip address
-* To run server, use command from working directiory: 
+* To run server, use command in working directiory: 
 ```bash
 uvicorn server.app.index:app  --host 0.0.0.0 --reload --port 8080
 ```
-* To run Reactapp, go to client server and in terminal write: 
+* To run Reactapp, go to client folder and run in terminal: 
 ```bash
 npm start
 ```
@@ -35,7 +35,7 @@ Windows users:
 
 ## INFO:
 Application contains full workflow (github actions):
-* After pushing to your repo and doing pull request, github actions creates docker images and tests it.
+* After pushing to your repo and start pull request, github actions will create docker images and test it.
 * if pushing to production branch, github action pushing images to docker hub. To use it, add secret keys to your repositorium with: DOCKER_PASSWORD, DOCKER_USER
 * docker-compose.prod.yml contains copy of dev docker-compose file except using volumes.
 

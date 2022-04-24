@@ -11,7 +11,7 @@ export default class FastApi extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:8080/`, {
+    axios.get('/api/', {
         mode: 'cors',
     })
       .then(res => {
