@@ -9,7 +9,8 @@ from dotenv import load_dotenv
 
 from server.app.logging_setup import logger
 
-dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
+
+dotenv_path = os.path.join(os.getcwd(), ".env")
 load_dotenv(dotenv_path)
 
 app=FastAPI()
@@ -24,7 +25,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=['*'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -41,7 +42,6 @@ def index() -> JSONResponse:
     socket_ip.connect(("8.8.8.8", 8000))
     ip_add = socket_ip.getsockname()
     socket_ip.close()
-
     server_ip = os.getenv('SERVER_IP')
 
     context = {
