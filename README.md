@@ -8,7 +8,7 @@
 
 # Instructions:
 
-* Copy repo on your local disc
+* Copy repo to your local disc
 * To have your server ip showed on the website, add .env file to main folder of aplication.
 * Add variable to file: SERVER_IP=your host ip address
 * To run server, use command in working directiory: 
@@ -34,10 +34,10 @@ Windows users:
 <br>
 
 ## INFO:
-Application contains full workflow (github actions):
-* After pushing to your repo and start pull request, github actions will create docker images and test it.
-* if pushing to production branch, github action pushing images to docker hub. To use it, add secret keys to your repositorium with: DOCKER_PASSWORD, DOCKER_USER
-* docker-compose.prod.yml contains copy of dev docker-compose file except using volumes.
+Application contains full workflow with github actions:
+* After pushing to your repo and start pull request, github actions creates docker images and starts unitests.
+* if project will be merged with production branch, github action will push new images to docker hub. To use it, add secret keys to your repositorium: DOCKER_PASSWORD, DOCKER_USER
+* docker-compose.prod.yml contains copy of dev docker-compose file except using volumes. There is also watchtower app which watches image changes. If new image is pushed to docker hub and service is running on production serwer, new images will be pulled and aplied. To get it work, copy project to server, create images by docker-compose.prod.yml file, and add to .env file variables: DOCKER_PASSWORD, DOCKER_USER.
 
 ## How it looks like:
 ![alt text](reactapp.jpg?raw=true)
